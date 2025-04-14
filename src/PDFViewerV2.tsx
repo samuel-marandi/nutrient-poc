@@ -47,11 +47,8 @@ export const PDFViewerV2 = ({
         NutrientViewer.convertToPDF({
           container,
           document: arrayBuffer,
-          // Passing license key generates the error,
-          // licenseKey: '',
           baseUrl: `${window.location.protocol}//${window.location.host}/${import.meta.env.PUBLIC_URL ?? ''}`,
         }).then((arrayBuffer) => {
-          console.log('PDF', arrayBuffer);
           NutrientViewer.load({
             container,
             document: arrayBuffer,
@@ -69,7 +66,7 @@ export const PDFViewerV2 = ({
     initializeViewer();
 
     return cleanup;
-  }, [document, setPdfViewerInstance, toolbarItems]);
+  }, []);
 
   return <div ref={containerRef} style={{ width: '100%', height: 'calc(100vh - 110px)' }} />;
 };
